@@ -2,15 +2,65 @@
 .modal-container {
     width: 100dvw;
     height: 100dvh;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     position: fixed;
     z-index: 10;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.dark-bg {
-    background-color: rgba(0, 0, 0, 0.3);
+.solid-center {
+    width: 300px;
+    height: 400px;
+    background-color: #444;
+    border-radius: 8px;
+    position: relative;
+}
+
+.bottom-container {
+    position: absolute;
+    bottom: 0;
+    background-color: #666;
+    border-radius: 0 0 4px 4px;
+
+    height: 48px;
     width: 100%;
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    padding: 4px 0;
+    width: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    font-weight: 500;
+    color: white;
+    border-radius: 4px;
+    margin: 0 8px;
+}
+
+button.cancel {
+    background-color: #999;
+}
+
+button.done {
+    background-color: purple;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .dark-bg {
+        background-color: rgba(0, 0, 0, 0.4);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
 }
