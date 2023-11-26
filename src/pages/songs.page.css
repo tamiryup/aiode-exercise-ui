@@ -2,6 +2,8 @@
 .content-wrapper {
     padding-top: calc(90px + 12px);
     background-color: none;
+    min-height: 100%;
+    background-color: black;
 }
 
 div.songs {
