@@ -1,0 +1,36 @@
+
+.content-wrapper {
+    padding-top: calc(90px + 12px);
+    background-color: none;
+}
+
+div.songs {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 8px;
+}
+
+/* Desktop */
+@media only screen and (min-width: 768px) {
+
+    .content-wrapper {
+        padding-top: 60px;
+    }
+
+    div.songs {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    div.songs {
+        margin: 20px 28px;
+    
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, max-content));
+        grid-gap: 20px;
+        padding: initial;
+        justify-content: center;
+    }
+
+}

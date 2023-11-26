@@ -1,0 +1,58 @@
+
+.songbox-container {
+    height: 90px;
+    margin: 10px 30px;
+    display: inline-block;
+
+    background-color: grey;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 4px;
+    position: relative;
+}
+
+.song-container {
+    padding: 10px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.song-container .title {
+    font-size: 17px;
+}
+
+.song-container .artist {
+    margin-top: 4px;
+    color: #bbb;
+    font-size: 11px;
+}
+
+.genre-container {
+    height: 26px;
+    width: 100%;
+    padding: 6px 8px;
+
+    /* center align text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: absolute;
+    bottom: 0;
+    background-color: #555;
+    border-radius: 0 0 4px 4px;
+
+    font-size: 11px;
+    color: #bbb;
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .songbox-container {
+        width: 180px;
+        margin: 0;
+    }
+
+}
