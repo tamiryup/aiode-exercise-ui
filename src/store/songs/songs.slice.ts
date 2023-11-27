@@ -18,6 +18,24 @@ export const getSongs = createAsyncThunk(
   },
 );
 
+export const addSong = createAsyncThunk(
+  "songs/addSong",
+  async (payload: Song, { dispatch, rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${baseUrl}/add`, payload, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      dispatch(handleAddSong(payload));
+      return payload;
+    } catch (error) {
+      console.log("error in server request");
+      rejectWithValue(error);
+    }
+  },
+);
+
 const initialState: SongsSliceType = {
   songs: [],
 };
@@ -34,7 +52,7 @@ const songsSlice = createSlice({
       };
     },
 
-    addSong: (state, action) => {
+    handleAddSong: (state, action) => {
       const song = action.payload;
       return {
         ...state,
@@ -44,7 +62,7 @@ const songsSlice = createSlice({
   },
 });
 
-export const { addSong, storeSongs } = songsSlice.actions;
+export const { handleAddSong, storeSongs } = songsSlice.actions;
 export const songsState = (state: RootState) => state.songs;
 
 export default songsSlice.reducer;

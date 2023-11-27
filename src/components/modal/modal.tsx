@@ -1,15 +1,28 @@
 import React from "react";
 import "./modal.css";
 import { useState } from "react";
+import { useAppDispatch } from "hooks/hooks";
+import { addSong } from "store/songs/songs.slice";
 
 interface ModalProps {
   setIsOpen(isOpen: boolean): any;
 }
 
 export function Modal({ setIsOpen, ...props }: ModalProps) {
+  const dispatch = useAppDispatch();
+
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
   const [genre, setGenre] = useState("");
+
+  const onDone = () => {
+    if (!title || !artist || !genre) {
+      alert("fill all fields");
+    } else {
+      dispatch(addSong({ title: title, artist: artist, genre: genre }));
+      setIsOpen(false);
+    }
+  };
 
   return (
     <div className="modal-container">
@@ -48,7 +61,9 @@ export function Modal({ setIsOpen, ...props }: ModalProps) {
           <button className="cancel" onClick={() => setIsOpen(false)}>
             CANCEL
           </button>
-          <button className="done">DONE</button>
+          <button className="done" onClick={onDone}>
+            DONE
+          </button>
         </div>
       </div>
     </div>
