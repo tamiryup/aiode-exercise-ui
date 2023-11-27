@@ -18,6 +18,9 @@
     background-color: #444;
 
     position: relative;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 48px;
 }
 
 .bottom-container {
@@ -52,6 +55,35 @@ button.done {
     background-color: purple;
 }
 
+.song-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0 64px;
+}
+
+.song-form input {
+    padding: 12px;
+    text-align: center;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+}
+
+.song-form h2 {
+    padding: 6px 0;
+    font-size: 16px;
+}
+
+.field-container {
+    padding: 8px 0px;
+    height: 92px;
+}
+
 @media only screen and (min-width: 768px) {
 
     .dark-bg {
@@ -67,6 +99,10 @@ button.done {
         border-radius: 8px;
         width: 300px;
         height: 400px;
+    }
+
+    .song-form {
+        padding: 32px;
     }
 
 }
