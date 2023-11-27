@@ -1,12 +1,19 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { SongsPage } from "pages/songs.page";
 import { NavBar } from "components/nav-bar/navbar";
 import { Modal } from "components/modal/modal";
+import { getSongs } from "store/songs/songs.slice";
+import { useAppDispatch } from "hooks/hooks";
 
 function App() {
+  const dispatch = useAppDispatch();
+
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    dispatch(getSongs());
+  }, [dispatch]);
 
   return (
     <>
