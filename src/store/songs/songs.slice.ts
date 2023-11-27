@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { SongsSliceType } from "./types";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { SongsSliceType, Song } from "./types";
 import axios from "axios";
 import { RootState } from "store/store";
 
@@ -26,8 +26,8 @@ const songsSlice = createSlice({
   name: "songs",
   initialState: initialState,
   reducers: {
-    storeSongs: (state, action) => {
-      const songs = action.payload;
+    storeSongs: (state, action: PayloadAction<Song[]>) => {
+      const songs: Song[] = action.payload;
       return {
         ...state,
         songs: songs,
